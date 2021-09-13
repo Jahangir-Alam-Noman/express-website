@@ -21,13 +21,46 @@ const showProducts = (products) => {
         </div>
         <h3>${product.title}</h3>
         <p>Category: ${product.category}</p>
-        <h2>Price: $ ${product.price}</h2>
-        <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-        <button id="details-btn" class="btn btn-danger">Details</button>
+        <p>Average Rating: ${product.rating.rate}</p>
+        <p>Rating Count: ${product.rating.count}</p>
+        <h3>Price: $ ${product.price}</h3>
+        <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>     
+        <button onclick="cartDetails(${product.id})" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Details</button>
     </div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
+};
+
+//  get cart details 
+const cartDetails = (id) => {
+  const url = `https://fakestoreapi.com/products/${id}`;
+  fetch(url)
+    .then(res => res.json())
+    .then(data => displayCartDetails(data))
+}
+
+// show Single cart details in UI 
+const displayCartDetails = (details) => {
+  document.getElementById("cartDetails").textContent = '';
+  const image = details.image;
+  const div = document.createElement('div');
+  div.classList.add("product");
+  div.innerHTML = `
+<div id="cartDetails" class="modal-body">
+  <div class="single-product-details">
+  <div>
+  <img class="product-image" src=${image}></img>
+  </div>
+  <h3>${details.title}</h3>
+  <p><strong>Category: ${details.category} </strong></p>
+  <p><strong>Average Rating: ${details.rating.rate}</strong></p>
+  <p><strong>Rating Count: ${details.rating.count}</strong></p>
+  <h2>Price: $ ${details.price}</h2>
+  <p>${details.description} </p>
+</div>
+    `;
+  document.getElementById("cartDetails").appendChild(div);
 };
 
 

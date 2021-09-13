@@ -5,37 +5,73 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ranga </title>
+  <title>Express</title>
   <link rel="stylesheet" href="./css/style.css" />
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
 
+
   <!-- google Montserrat  font added  -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Latest compiled and minified CSS and js for modal -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
 </head>
 
 <body>
+  <!-- Header part -->
   <header></header>
+
   <main class="main">
-    <div class="search-field">
-      <div class="search-box">
-        <input id="input-field" class="search-field" type="text" />
-        <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
-          autocomplete="off" id="search-btn" onclick="loadProducts()">
-          Search
-        </button>
+    <!-- show Single cart  -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div id="cartDetails" class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
     </div>
+    <!-- Search button -->
+    <div class="search-field">
+      <div class="search-box">
+        <div class="input-group">
+          <input id="input-field" type="text" class="form-control search-field" placeholder="Search for...">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-info search-button" data-toggle="button" aria-pressed="false"
+              autocomplete="off" id="search-btn" onclick="loadProducts()">
+              Search
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
+      <!-- show all products -->
       <div class="col-md-9 col-lg-9 col-sm-7">
         <div id="all-products" class="">
 
         </div>
       </div>
       <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
+        <!--  balance sheet -->
         <div class="cart" id="my-cart">
           <table class="table">
             <thead>
@@ -80,12 +116,14 @@
             </tbody>
           </table>
           <div class="parces text-center">
-            <button class="btn btn-primary text-center">Buy Now</button>
+            <button class="btn btn-info text-center">Buy Now</button>
           </div>
         </div>
       </div>
     </div>
   </main>
+
+  <!-- Footer part -->
   <footer></footer>
 
   <!-- add javascript  file  -->
