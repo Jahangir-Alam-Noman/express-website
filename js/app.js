@@ -7,7 +7,7 @@ const loadProducts = () => {
 loadProducts();
 
 
-// show all product in UI 
+// show all products in UI 
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
@@ -73,6 +73,7 @@ const addToCart = (id, price) => {
   document.getElementById("total-Products").innerText = count;
 };
 
+// set previous value
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);
